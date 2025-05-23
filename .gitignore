@@ -1,0 +1,23 @@
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*~
+*.swp
+*.bak
+
+# Ignore sensitive information (customize as needed)
+.ssh/id_*
+.ssh/known_hosts
+.gnupg/*
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore logs
+*.log
+
+# Ignore stow local ignore file (uncomment if you decide to use it)
+# .stow-local-ignore 
