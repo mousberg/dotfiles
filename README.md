@@ -8,6 +8,7 @@ My personal dotfiles for macOS, managed with GNU Stow.
 - starship: Starship prompt configuration
 - git: Git configuration
 - ghostty: Ghostty terminal emulator configuration
+- ssh: SSH client configuration (securely copied, not symlinked)
 
 ## Installation
 

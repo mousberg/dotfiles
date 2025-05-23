@@ -16,10 +16,10 @@ if ! command -v stow &> /dev/null; then
     exit 1
 fi
 
-# Run stow for each directory (excluding ghostty which needs special handling)
+# Run stow for each directory (excluding ghostty and ssh which need special handling)
 for dir in */; do
     dir=${dir%*/}
-    if [ "$dir" != "ghostty" ]; then
+    if [ "$dir" != "ghostty" ] && [ "$dir" != "ssh" ]; then
         echo -e "${GREEN}Stowing $dir...${NC}"
         stow "$dir"
     fi
@@ -46,6 +46,29 @@ if [ -d "ghostty" ]; then
     # Create symlink to our dotfiles
     ln -s ~/dotfiles/ghostty/.config/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
     echo -e "${GREEN}Ghostty configuration linked!${NC}"
+fi
+
+# Special handling for SSH configuration
+if [ -d "ssh" ]; then
+    echo -e "${GREEN}Setting up SSH configuration...${NC}"
+    # Create SSH directory if it doesn't exist
+    mkdir -p ~/.ssh
+    
+    # Set proper permissions for SSH directory
+    chmod 700 ~/.ssh
+    
+    # Backup existing config if it exists and is not a symlink
+    if [ -f ~/.ssh/config ] && [ ! -L ~/.ssh/config ]; then
+        echo -e "${YELLOW}Backing up existing SSH config...${NC}"
+        cp ~/.ssh/config ~/.ssh/config.bak
+    fi
+    
+    # Copy config file (we don't symlink for security reasons)
+    if [ -f "ssh/.ssh/config" ]; then
+        cp ssh/.ssh/config ~/.ssh/config
+        chmod 600 ~/.ssh/config
+        echo -e "${GREEN}SSH configuration copied!${NC}"
+    fi
 fi
 
 echo -e "${GREEN}Dotfiles setup complete!${NC}" 
