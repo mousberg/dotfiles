@@ -1,2 +1,6 @@
 --target=${HOME}
---verbose 
+--verbose
+--ignore=.DS_Store
+--ignore=.git
+--ignore=README.md
+--ignore=setup.sh 
