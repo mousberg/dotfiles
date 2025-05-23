@@ -7,6 +7,7 @@ My personal dotfiles for macOS, managed with GNU Stow.
 - zsh: ZSH configuration with Oh My Zsh
 - starship: Starship prompt configuration
 - git: Git configuration
+- ghostty: Ghostty terminal emulator configuration
 
 ## Installation
 
@@ -15,6 +16,7 @@ My personal dotfiles for macOS, managed with GNU Stow.
 - [GNU Stow](https://www.gnu.org/software/stow/)
 - [Starship](https://starship.rs/)
 - [Oh My Zsh](https://ohmyz.sh/)
+- [Ghostty](https://mitchellh.com/ghostty)
 
 ### Setup
 
