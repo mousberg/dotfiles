@@ -44,7 +44,7 @@ if [ -d "ghostty" ]; then
     fi
     
     # Create symlink to our dotfiles
-    ln -s ~/dotfiles/ghostty/.config/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+    ln -s ~/dotfiles/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
     echo -e "${GREEN}Ghostty configuration linked!${NC}"
 fi
 
@@ -64,8 +64,8 @@ if [ -d "ssh" ]; then
     fi
     
     # Copy config file (we don't symlink for security reasons)
-    if [ -f "ssh/.ssh/config" ]; then
-        cp ssh/.ssh/config ~/.ssh/config
+    if [ -f "ssh/config" ]; then
+        cp ssh/config ~/.ssh/config
         chmod 600 ~/.ssh/config
         echo -e "${GREEN}SSH configuration copied!${NC}"
     fi
