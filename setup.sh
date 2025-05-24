@@ -31,4 +31,8 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# Install tmux plugins
+echo "Installing tmux plugins..."
+~/.tmux/plugins/tpm/bin/install_plugins
+
 echo "Dotfiles setup complete!" 
