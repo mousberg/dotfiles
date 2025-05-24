@@ -9,6 +9,8 @@ My personal dotfiles for macOS, managed with GNU Stow.
 - git: Git configuration
 - ghostty: Ghostty terminal emulator configuration
 - ssh: SSH client configuration (securely copied, not symlinked)
+- tmux: Terminal multiplexer configuration with plugins
+- nvim: Neovim configuration (basic setup)
 
 ## Installation
 
@@ -18,6 +20,9 @@ My personal dotfiles for macOS, managed with GNU Stow.
 - [Starship](https://starship.rs/)
 - [Oh My Zsh](https://ohmyz.sh/)
 - [Ghostty](https://mitchellh.com/ghostty)
+- [Tmux](https://github.com/tmux/tmux)
+- [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+- [Neovim](https://neovim.io/) (v0.8.0+)
 
 ### Setup
 
@@ -40,7 +45,19 @@ Alternatively, you can stow individual configurations:
 stow zsh
 stow starship
 stow git
+stow tmux
+stow nvim
 ```
+
+### Tmux Setup
+
+After installing the dotfiles, you'll need to install the Tmux Plugin Manager:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Then start tmux and press `prefix + I` (default prefix is Ctrl-a) to install the plugins.
 
 ## Adding New Configurations
 
