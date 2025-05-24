@@ -4,14 +4,13 @@ My personal dotfiles for macOS, managed with GNU Stow.
 
 ## Structure
 
-This repository follows XDG Base Directory specification with a unified stow approach:
+This repository follows a simple, one-directory-per-tool approach:
 
-- `.config/` - Configuration files that go into `~/.config/`
-  - `nvim/` - Neovim configuration
-  - `git/` - Git configuration
+- `nvim/` - Neovim configuration (symlinked to ~/.config/nvim/)
 - `tmux/` - Tmux configuration (symlinked to ~/.tmux.conf)
 - `zsh/` - ZSH configuration
 - `starship/` - Starship prompt configuration
+- `git/` - Git configuration
 - `ghostty/` - Ghostty terminal configuration (specially handled)
 - `ssh/` - SSH configuration (copied, not symlinked)
 
@@ -52,7 +51,7 @@ Run the setup script to symlink everything:
 ./setup.sh
 ```
 
-The setup script uses stow to create symlinks for all configurations while handling special cases like Ghostty and SSH.
+The setup script stows each directory and handles special cases like Ghostty, Neovim, and SSH.
 
 ### Tmux Setup
 
@@ -60,11 +59,13 @@ After installing the dotfiles, you'll need to install the Tmux Plugin Manager (t
 
 ## Adding New Configurations
 
-For XDG-compliant applications (modern):
-1. Add configuration files to `.config/<app-name>/`
+1. Create a new directory for the tool/application
+2. Add configuration files to that directory
+3. Run `stow <directory-name>` to create the symlinks
 
-For traditional dotfiles (legacy):
-1. Add configuration files to a directory named after the tool
+For applications that store their config in ~/.config (like Neovim):
+- Add configuration files to a dedicated directory (e.g., nvim/)
+- Update setup.sh to create appropriate symlinks
 
 ## Updating
 
