@@ -2,6 +2,19 @@
 
 My personal dotfiles for macOS, managed with GNU Stow.
 
+## Structure
+
+This repository follows XDG Base Directory specification with a unified stow approach:
+
+- `.config/` - Configuration files that go into `~/.config/`
+  - `nvim/` - Neovim configuration
+  - `git/` - Git configuration
+- `tmux/` - Tmux configuration (symlinked to ~/.tmux.conf)
+- `zsh/` - ZSH configuration
+- `starship/` - Starship prompt configuration
+- `ghostty/` - Ghostty terminal configuration (specially handled)
+- `ssh/` - SSH configuration (copied, not symlinked)
+
 ## What's Included
 
 - zsh: ZSH configuration with Oh My Zsh
@@ -39,31 +52,19 @@ Run the setup script to symlink everything:
 ./setup.sh
 ```
 
-Alternatively, you can stow individual configurations:
-
-```bash
-stow zsh
-stow starship
-stow git
-stow tmux
-stow nvim
-```
+The setup script uses stow to create symlinks for all configurations while handling special cases like Ghostty and SSH.
 
 ### Tmux Setup
 
-After installing the dotfiles, you'll need to install the Tmux Plugin Manager:
-
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
-Then start tmux and press `prefix + I` (default prefix is Ctrl-a) to install the plugins.
+After installing the dotfiles, you'll need to install the Tmux Plugin Manager (the setup script will do this automatically if it's not already installed). Then start tmux and press `prefix + I` (default prefix is Ctrl-a) to install the plugins.
 
 ## Adding New Configurations
 
-1. Create a new directory for the tool/application
-2. Add configuration files to that directory, mirroring the structure in your home directory
-3. Run `stow <directory-name>` to create the symlinks
+For XDG-compliant applications (modern):
+1. Add configuration files to `.config/<app-name>/`
+
+For traditional dotfiles (legacy):
+1. Add configuration files to a directory named after the tool
 
 ## Updating
 

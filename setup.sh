@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# Stow standard configs (exclude special cases)
-for dir in */; do
-    dir=${dir%*/}
-    if [ "$dir" != "ghostty" ] && [ "$dir" != "ssh" ]; then
-        stow "$dir"
-    fi
-done
+# Stow configuration files - using a single stow operation for all top-level configs
+stow --no-folding .
 
 # Special handling for Ghostty
 mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
