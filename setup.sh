@@ -3,7 +3,7 @@
 # Stow standard configs (exclude special cases)
 for dir in */; do
     dir=${dir%*/}
-    if [ "$dir" != "ghostty" ] && [ "$dir" != "ssh" ]; then
+    if [ "$dir" != "ghostty" ] && [ "$dir" != "ssh" ] && [ "$dir" != "tmux" ] && [ "$dir" != "nvim" ]; then
         stow "$dir"
     fi
 done
@@ -21,6 +21,9 @@ mkdir -p ~/.config/nvim
 
 # Make special symlinks for Neovim
 ln -sf ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
+
+# Special handling for tmux - direct symlink
+ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 # Install Tmux Plugin Manager if not already installed
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
