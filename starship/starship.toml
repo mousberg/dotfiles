@@ -1,8 +1,8 @@
 add_newline = false
-# A minimal left prompt
-format = """$directory$character"""
+# A minimal left prompt with git branch
+format = """$directory$git_branch$character"""
 palette = "catppuccin_mocha"
-# move the rest of the prompt to the right
+# move the rest of the prompt to the right (excluding git_branch now)
 right_format = """$all"""
 command_timeout = 1000
 
@@ -14,7 +14,8 @@ success_symbol = '[>](bold green)'
 '~/tests/starship-custom' = 'work-project'
 
 [git_branch]
-format =  '[$symbol$branch(:$remote_branch)]($style)'
+format =  '[$symbol$branch(:$remote_branch)]($style) '
+style = "bold purple"
 
 [aws]
 format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
