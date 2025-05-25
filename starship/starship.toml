@@ -1,9 +1,9 @@
 add_newline = false
-# A minimal left prompt with git branch
-format = """$directory$git_branch$character"""
+# A minimal left prompt
+format = """$directory$character"""
 palette = "catppuccin_mocha"
-# move the rest of the prompt to the right (excluding git_branch now)
-right_format = """$all"""
+# move the rest of the prompt to the right with explicit git_branch inclusion
+right_format = """$git_branch$all"""
 command_timeout = 1000
 
 [character]
