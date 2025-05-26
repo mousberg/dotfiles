@@ -3,7 +3,7 @@
 # Stow standard configs (exclude special cases)
 for dir in */; do
     dir=${dir%*/}
-    if [ "$dir" != "ghostty" ] && [ "$dir" != "ssh" ] && [ "$dir" != "tmux" ] && [ "$dir" != "nvim" ]; then
+    if [ "$dir" != "ghostty" ] && [ "$dir" != "ssh" ] && [ "$dir" != "tmux" ]; then
         stow "$dir"
     fi
 done
@@ -15,12 +15,6 @@ ln -sf ~/dotfiles/ghostty/config ~/Library/Application\ Support/com.mitchellh.gh
 # Special handling for SSH (copy, don't symlink)
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
 cp -f ssh/config ~/.ssh/config && chmod 600 ~/.ssh/config
-
-# Ensure Neovim config directory exists
-mkdir -p ~/.config/nvim
-
-# Make special symlinks for Neovim
-ln -sf ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 
 # Special handling for tmux - direct symlink
 ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
