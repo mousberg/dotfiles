@@ -104,7 +104,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 eval "$(starship init zsh)"
 
