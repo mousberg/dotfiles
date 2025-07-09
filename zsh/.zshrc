@@ -119,3 +119,9 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(starship init zsh)"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
+alias claude="/Users/davidgelberg/.claude/local/claude"
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
